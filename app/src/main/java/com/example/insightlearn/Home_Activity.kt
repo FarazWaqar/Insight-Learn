@@ -19,18 +19,15 @@ class HomeActivity : AppCompatActivity() {
         val settingsIcon = findViewById<Button>(R.id.settingsButton)
 
         // Set up click listeners
+        // Inside HomeActivity.kt
         detectionButton.setOnClickListener {
-            Toast.makeText(this, "Detection feature coming soon!", Toast.LENGTH_SHORT).show()
-            // Navigate to DetectionActivity (if implemented)
-            // val intent = Intent(this, DetectionActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, DetectionActivity::class.java)
+            startActivity(intent)
         }
 
         therapyButton.setOnClickListener {
-            Toast.makeText(this, "Therapy feature coming soon!", Toast.LENGTH_SHORT).show()
-            // Navigate to TherapyActivity (if implemented)
-            // val intent = Intent(this, TherapyActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, TherapyActivity::class.java)
+            startActivity(intent)
         }
 
         settingsIcon.setOnClickListener {

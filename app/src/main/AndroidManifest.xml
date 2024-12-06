@@ -13,6 +13,10 @@
         android:theme="@style/Theme.InsightLearn"
         tools:targetApi="31">
 
+        <activity android:name=".ResultActivity"/>
+        <activity android:name=".DyslexiaTestActivity"/>
+        <activity android:name=".DetectionActivity"/>
+        <activity android:name=".TherapyActivity"/>
         <activity android:name=".HomeActivity"/>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
