@@ -1,8 +1,9 @@
 package com.example.insightlearn
+
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class GraphDetection_Activity : AppCompatActivity() {
@@ -34,10 +35,10 @@ class GraphDetection_Activity : AppCompatActivity() {
             resultMessage += if (hatAnswer == "t") "Hat: Correct\n" else "Hat: Wrong\n"
             resultMessage += if (sunAnswer == "u") "Sun: Correct\n" else "Sun: Wrong\n"
 
-            // Show Result
-            Toast.makeText(this, resultMessage, Toast.LENGTH_LONG).show()
+            // Navigate to Result Screen
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("resultMessage", resultMessage)
+            startActivity(intent)
         }
     }
 }
-
-
