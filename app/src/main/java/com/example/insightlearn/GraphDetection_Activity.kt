@@ -20,7 +20,12 @@ class GraphDetection_Activity : AppCompatActivity() {
 
         // Buttons
         val nextButton = findViewById<Button>(R.id.nextButton)
-
+        val backButton = findViewById<Button>(R.id.backButton)
+        backButton.setOnClickListener{
+            val intent = Intent(this, DetectionActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         nextButton.setOnClickListener {
             // Check Answers
             val henAnswer = inputHen.text.toString()
