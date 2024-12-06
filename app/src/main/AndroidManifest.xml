@@ -22,6 +22,8 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".GraphDetection_Activity" />
         <activity android:name=".graphActivityResult" />
+        <activity android:name=".graphiatherapy" />
+        <activity android:name=".graphtherapyresult" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
