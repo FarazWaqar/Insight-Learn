@@ -35,9 +35,9 @@ class GraphDetection_Activity : AppCompatActivity() {
             resultMessage += if (hatAnswer == "t") "Hat: Correct\n" else "Hat: Wrong\n"
             resultMessage += if (sunAnswer == "u") "Sun: Correct\n" else "Sun: Wrong\n"
 
-            // Navigate to Result Screen
-            val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra("resultMessage", resultMessage)
+            // Navigate to Result Screen with updated key
+            val intent = Intent(this, graphActivityResult::class.java)
+            intent.putExtra("results", resultMessage)  // Change to "results"
             startActivity(intent)
         }
     }

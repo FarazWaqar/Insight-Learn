@@ -11,8 +11,8 @@ class graphActivityResult : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.graphresult_screen)
 
-        // Get Results Passed from MainActivity
-        val results = intent.getStringExtra("results")
+        // Get Results Passed from GraphDetection_Activity
+        val results = intent.getStringExtra("results")  // Use the same key "results"
 
         // Display Results
         val resultTextView = findViewById<TextView>(R.id.resultText)
@@ -21,7 +21,7 @@ class graphActivityResult : AppCompatActivity() {
         // Back Button to Go to Main Activity
         val backButton = findViewById<Button>(R.id.backButtonResult)
         backButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, GraphDetection_Activity::class.java)
             startActivity(intent)
             finish()
         }
