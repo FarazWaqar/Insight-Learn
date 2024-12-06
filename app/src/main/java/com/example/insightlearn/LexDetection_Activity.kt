@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.insightlearn.ResultActivity
+import androidx.core.content.ContextCompat
 import kotlin.random.Random
 
 class DyslexiaTestActivity : AppCompatActivity() {
@@ -70,15 +70,36 @@ class DyslexiaTestActivity : AppCompatActivity() {
         // Populate the grid layout
         gridLayout.removeAllViews()
         for (letter in letters) {
-            val button = Button(this)
-            button.text = letter.toString()
+            val button = Button(this).apply {
+                text = letter.toString()
+
+                // Using ContextCompat to get color resource
+                setBackgroundColor(ContextCompat.getColor(this@DyslexiaTestActivity, R.color.alphabetButtonBackground)) // Custom background color
+                setTextColor(ContextCompat.getColor(this@DyslexiaTestActivity, R.color.alphabetButtonText)) // Custom text color
+
+                textSize = 18f
+                isAllCaps = false
+            }
+// Set GridLayout.LayoutParams to control button position
+            val params = GridLayout.LayoutParams().apply {
+                width = GridLayout.LayoutParams.WRAP_CONTENT
+                height = GridLayout.LayoutParams.WRAP_CONTENT
+                // Optionally, set column and row span for buttons (if required)
+                columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1) // Occupy one column
+                rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1) // Occupy one row
+                setMargins(-15, 20, 8, -18) // Set margins between buttons
+            }
+
+            button.layoutParams = params
             button.setOnClickListener {
                 if (letter == targetLetter) {
                     correctSelections++
                     button.isEnabled = false // Disable after selection
+                    button.setBackgroundColor(ContextCompat.getColor(this@DyslexiaTestActivity, R.color.correctSelection)) // Set incorrect selection color
                 } else {
                     incorrectSelections++
                     button.isEnabled = false // Disable after selection
+                    button.setBackgroundColor(ContextCompat.getColor(this@DyslexiaTestActivity, R.color.incorrectSelection))
                 }
             }
             gridLayout.addView(button)
@@ -95,3 +116,4 @@ class DyslexiaTestActivity : AppCompatActivity() {
         startActivity(intent)
     }
 }
+

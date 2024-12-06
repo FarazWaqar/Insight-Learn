@@ -22,7 +22,11 @@ class LoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             val email = emailInput.text.toString()
             val password = passwordInput.text.toString()
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
 
+/*
             // Validate login credentials
             if (SignUpActivity.userDatabase.containsKey(email) && SignUpActivity.userDatabase[email] == password) {
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
@@ -34,6 +38,8 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Invalid email or password!", Toast.LENGTH_SHORT).show()
             }
+
+ */
         }
 
         // Navigate to SignUpActivity
