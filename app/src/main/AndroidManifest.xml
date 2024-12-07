@@ -25,6 +25,7 @@
         <activity android:name=".graphiatherapy" />
         <activity android:name=".graphtherapyresult" />
         <activity android:name=".lexthearpyresult" />
+        <activity android:name=".lextherapy" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
