@@ -20,13 +20,13 @@ class DetectionActivity : AppCompatActivity() {
 
         // Navigate to Dyslexia Details
         dyslexiaButton.setOnClickListener {
-            val intent = Intent(this, DyslexiaTestActivity::class.java)
+            val intent = Intent(this, dyslexiaTestActivity::class.java)
             startActivity(intent)
         }
 
         // Navigate to Dysgraphia Details
         dysgraphiaButton.setOnClickListener {
-            val intent = Intent(this, GraphDetection_Activity::class.java)
+            val intent = Intent(this, graphDetectionActivity::class.java)
             startActivity(intent)
         }
 

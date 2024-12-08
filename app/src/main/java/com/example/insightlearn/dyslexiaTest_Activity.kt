@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlin.random.Random
 
-class DyslexiaTestActivity : AppCompatActivity() {
+class dyslexiaTestActivity : AppCompatActivity() {
 
     private lateinit var instructionText: TextView
     private lateinit var gridLayout: GridLayout
@@ -74,8 +74,8 @@ class DyslexiaTestActivity : AppCompatActivity() {
                 text = letter.toString()
 
                 // Using ContextCompat to get color resource
-                setBackgroundColor(ContextCompat.getColor(this@DyslexiaTestActivity, R.color.alphabetButtonBackground)) // Custom background color
-                setTextColor(ContextCompat.getColor(this@DyslexiaTestActivity, R.color.alphabetButtonText)) // Custom text color
+                setBackgroundColor(ContextCompat.getColor(this@dyslexiaTestActivity, R.color.alphabetButtonBackground)) // Custom background color
+                setTextColor(ContextCompat.getColor(this@dyslexiaTestActivity, R.color.alphabetButtonText)) // Custom text color
 
                 textSize = 18f
                 isAllCaps = false
@@ -95,11 +95,11 @@ class DyslexiaTestActivity : AppCompatActivity() {
                 if (letter == targetLetter) {
                     correctSelections++
                     button.isEnabled = false // Disable after selection
-                    button.setBackgroundColor(ContextCompat.getColor(this@DyslexiaTestActivity, R.color.correctSelection)) // Set incorrect selection color
+                    button.setBackgroundColor(ContextCompat.getColor(this@dyslexiaTestActivity, R.color.correctSelection)) // Set incorrect selection color
                 } else {
                     incorrectSelections++
                     button.isEnabled = false // Disable after selection
-                    button.setBackgroundColor(ContextCompat.getColor(this@DyslexiaTestActivity, R.color.incorrectSelection))
+                    button.setBackgroundColor(ContextCompat.getColor(this@dyslexiaTestActivity, R.color.incorrectSelection))
                 }
             }
             gridLayout.addView(button)
@@ -108,7 +108,7 @@ class DyslexiaTestActivity : AppCompatActivity() {
 
     private fun navigateToResultScreen() {
         // Pass the results to the result screen
-        val intent = Intent(this, ResultActivity::class.java).apply {
+        val intent = Intent(this, dyslexiaResultActivity::class.java).apply {
             putExtra("TOTAL_OCCURRENCES", totalOccurrences)
             putExtra("CORRECT_SELECTIONS", correctSelections)
             putExtra("INCORRECT_SELECTIONS", incorrectSelections)

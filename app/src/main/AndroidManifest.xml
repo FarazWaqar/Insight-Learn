@@ -13,19 +13,19 @@
         android:theme="@style/Theme.InsightLearn"
         tools:targetApi="31">
 
-        <activity android:name=".ResultActivity"/>
-        <activity android:name=".DyslexiaTestActivity"/>
         <activity android:name=".DetectionActivity"/>
-        <activity android:name=".TherapyActivity"/>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".dyslexiaResultActivity"/>
+        <activity android:name=".dyslexiaTestActivity"/>
+        <activity android:name=".dyslexiaTherapyResultActivity"/>
+        <activity android:name=".dyslexiaTherapyActivity"/>
+        <activity android:name=".graphDetectionActivity" />
+        <activity android:name=".graphDetectionResultActivity" />
+        <activity android:name=".graphTherapyActivity" />
+        <activity android:name=".graphTherapyResult_Activity" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".GraphDetection_Activity" />
-        <activity android:name=".graphActivityResult" />
-        <activity android:name=".graphtherapyactivity" />
-        <activity android:name=".graphtherapyresultactivity" />
-        <activity android:name=".lexthearpyresult" />
-        <activity android:name=".LexTherapyActivity" />
+        <activity android:name=".TherapyActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 
-class LexTherapyActivity : AppCompatActivity() {
+class dyslexiaTherapyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,7 @@ class LexTherapyActivity : AppCompatActivity() {
         }
 
         // Navigate to the result screen and pass the results
-        val intent = Intent(this, ResultActivity::class.java)
+        val intent = Intent(this, dyslexiaTherapyResultActivity::class.java)
         intent.putExtra("TOTAL_OCCURRENCES", totalQuestions)
         intent.putExtra("CORRECT_SELECTIONS", score)
         intent.putExtra("INCORRECT_SELECTIONS", totalQuestions - score)

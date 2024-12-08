@@ -18,12 +18,12 @@ class TherapyActivity : AppCompatActivity() {
 
         // Set onClick listeners for buttons
         dyslexiaButton.setOnClickListener {
-            val intent = Intent(this,LexTherapyActivity::class.java)
+            val intent = Intent(this, dyslexiaTherapyActivity::class.java)
             startActivity(intent)
         }
 
         dysgraphiaButton.setOnClickListener {
-            val intent = Intent(this, graphtherapyactivity::class.java)
+            val intent = Intent(this, graphTherapyActivity::class.java)
             startActivity(intent)
         }
 
@@ -35,11 +35,9 @@ class TherapyActivity : AppCompatActivity() {
         settingsButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
-            }
+        }
 
  */
-        }
     }
-
-
+}
 
