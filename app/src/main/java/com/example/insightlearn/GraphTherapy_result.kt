@@ -15,7 +15,7 @@ class graphtherapyresult : AppCompatActivity() {
         val results = intent.getStringArrayListExtra("results")
 
         // Display results
-        val resultsText = findViewById<TextView>(R.id.resultsText)
+        val resultsText = findViewById<TextView>(R.id.resultText)
         resultsText.text = results?.joinToString("\n") { it }
 
         // Back button to return to main screen
