@@ -22,7 +22,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".GraphDetection_Activity" />
         <activity android:name=".graphActivityResult" />
-        <activity android:name=".graphiatherapy" />
+        <activity android:name=".graphtherapy" />
         <activity android:name=".graphtherapyresult" />
         <activity android:name=".lexthearpyresult" />
         <activity android:name=".lextherapy" />

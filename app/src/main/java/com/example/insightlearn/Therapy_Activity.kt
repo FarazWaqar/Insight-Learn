@@ -15,18 +15,18 @@ class TherapyActivity : AppCompatActivity() {
         val dysgraphiaButton = findViewById<Button>(R.id.dysgraphiaButton)
         val homeButton = findViewById<Button>(R.id.homeButton)
         val settingsButton = findViewById<Button>(R.id.settingsButton)
-/*
+
         // Set onClick listeners for buttons
         dyslexiaButton.setOnClickListener {
-            val intent = Intent(this, DyslexiaTherapyActivity::class.java)
+            val intent = Intent(this,lextherapy::class.java)
             startActivity(intent)
         }
 
         dysgraphiaButton.setOnClickListener {
-            val intent = Intent(this, DysgraphiaTherapyActivity::class.java)
+            val intent = Intent(this, graphtherapy::class.java)
             startActivity(intent)
         }
-*/
+
         homeButton.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
@@ -35,9 +35,11 @@ class TherapyActivity : AppCompatActivity() {
         settingsButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
-        }
+            }
 
  */
+        }
     }
-}
+
+
 

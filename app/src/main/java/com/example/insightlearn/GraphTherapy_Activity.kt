@@ -7,55 +7,46 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class graphiatherapy : AppCompatActivity() {
+class graphtherapy : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.graphtherapy)
 
-        // EditTexts for inputs
-        val input1 = findViewById<EditText>(R.id.input1)
-        val input2 = findViewById<EditText>(R.id.input2)
-        val input3 = findViewById<EditText>(R.id.input3)
-        val input4 = findViewById<EditText>(R.id.input4)
-        val input5 = findViewById<EditText>(R.id.input5)
-        val input6 = findViewById<EditText>(R.id.input6)
-        val input7 = findViewById<EditText>(R.id.input7)
-        val input8 = findViewById<EditText>(R.id.input8)
-        val input9 = findViewById<EditText>(R.id.input9)
+        val inputFields = listOf(
+            findViewById<EditText>(R.id.input1),
+            findViewById<EditText>(R.id.input2),
+            findViewById<EditText>(R.id.input3),
+            findViewById<EditText>(R.id.input4),
+            findViewById<EditText>(R.id.input5),
+            findViewById<EditText>(R.id.input6),
+            findViewById<EditText>(R.id.input7),
+            findViewById<EditText>(R.id.input8),
+            findViewById<EditText>(R.id.input9)
+        )
 
-        // Correct answers
         val correctAnswers = listOf("AUNT", "SON", "UNCLE", "SISTER", "MOTHER", "FATHER", "BROTHER", "GRANDPA", "GRANDMA")
 
-        // Navigation Button
-        val nextButton = findViewById<Button>(R.id.nextButton)
+        val nextButton = findViewById<Button>(R.id.checkAnswersButton)
         nextButton.setOnClickListener {
-            val userAnswers = listOf(
-                input1.text.toString().uppercase(),
-                input2.text.toString().uppercase(),
-                input3.text.toString().uppercase(),
-                input4.text.toString().uppercase(),
-                input5.text.toString().uppercase(),
-                input6.text.toString().uppercase(),
-                input7.text.toString().uppercase(),
-                input8.text.toString().uppercase(),
-                input9.text.toString().uppercase()
-            )
+            // Convert user inputs and correct answers to uppercase for uniform comparison
+            val userAnswers = inputFields.map { it.text.toString().trim().uppercase() }
+            val correctAnswers = listOf("AUNT", "SON", "UNCLE", "SISTER", "MOTHER", "FATHER", "BROTHER", "GRANDPA", "GRANDMA")
 
             val results = userAnswers.mapIndexed { index, answer ->
-                if (answer == correctAnswers[index]) "Correct" else "Wrong"
+                if (answer == correctAnswers[index].uppercase()) "Correct" else "Wrong"
             }
 
-            // Display feedback for each input field
-            for ((index, answer) in userAnswers.withIndex()) {
-                if (answer == correctAnswers[index]) {
-                    showCorrectFeedback(index)
+// Provide feedback to the user
+            userAnswers.forEachIndexed { index, answer ->
+                if (answer == correctAnswers[index].uppercase()) {
+                    inputFields[index].setBackgroundResource(R.drawable.correct_input_background)
                 } else {
-                    showIncorrectFeedback(index)
+                    inputFields[index].setBackgroundResource(R.drawable.incorrect_input_background)
                 }
             }
 
-            // Check if all answers are correct
+
             if (results.all { it == "Correct" }) {
                 Toast.makeText(this, "All answers are correct!", Toast.LENGTH_SHORT).show()
                 navigateToResultActivity()
@@ -65,33 +56,9 @@ class graphiatherapy : AppCompatActivity() {
         }
     }
 
-    private fun showCorrectFeedback(index: Int) {
-        val editText = getEditTextByIndex(index)
-        editText.setBackgroundResource(R.drawable.correct_input_background)
-    }
-
-    private fun showIncorrectFeedback(index: Int) {
-        val editText = getEditTextByIndex(index)
-        editText.setBackgroundResource(R.drawable.incorrect_input_background)
-    }
-
-    private fun getEditTextByIndex(index: Int): EditText {
-        return when (index) {
-            0 -> findViewById(R.id.input1)
-            1 -> findViewById(R.id.input2)
-            2 -> findViewById(R.id.input3)
-            3 -> findViewById(R.id.input4)
-            4 -> findViewById(R.id.input5)
-            5 -> findViewById(R.id.input6)
-            6 -> findViewById(R.id.input7)
-            7 -> findViewById(R.id.input8)
-            8 -> findViewById(R.id.input9)
-            else -> throw IllegalArgumentException("Invalid index")
-        }
-    }
-
     private fun navigateToResultActivity() {
         val intent = Intent(this, ResultActivity::class.java)
         startActivity(intent)
     }
 }
+
