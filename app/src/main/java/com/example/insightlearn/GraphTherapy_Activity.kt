@@ -7,7 +7,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
 
-class graphtherapy : AppCompatActivity() {
+class graphtherapyactivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +62,7 @@ class graphtherapy : AppCompatActivity() {
     }
 
     private fun navigateToResultActivity(results: List<Pair<Int, String>>) {
-        val intent = Intent(this@graphtherapy , graphtherapyresult::class.java)
+        val intent = Intent(this@graphtherapyactivity , graphtherapyresultactivity::class.java)
         val resultDetails = results.map { "Input ${it.first + 1}: ${it.second}" }
         intent.putStringArrayListExtra("results", ArrayList(resultDetails))
         startActivity(intent)
