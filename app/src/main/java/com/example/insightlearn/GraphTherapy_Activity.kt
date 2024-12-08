@@ -76,7 +76,7 @@ class graphtherapy : AppCompatActivity() {
     }
 
     private fun navigateToResultActivity() {
-        val intent = Intent(this, ResultActivity::class.java)
+        val intent = Intent(this, graphtherapyresult::class.java)
         startActivity(intent)
     }
 }
