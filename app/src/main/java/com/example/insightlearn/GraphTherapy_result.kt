@@ -16,7 +16,8 @@ class graphtherapyresultactivity : AppCompatActivity() {
         val resultsTextView = findViewById<TextView>(R.id.resultText)
         val correctInputsTextView = findViewById<TextView>(R.id.correctInputText)
 
-        val results = intent.getStringArrayListExtra("results")
+        val results = intent.getStringArrayListExtra("results") ?: emptyList()
+
 
 
 
