@@ -7,7 +7,7 @@
 
     <!-- Result Text at the top -->
     <TextView
-        android:id="@+id/resultsText"
+        android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -37,12 +37,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/settings"
-    android:contentDescription="Settings"
-    android:background="?android:attr/selectableItemBackgroundBorderless"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentEnd="true"
-    android:layout_marginBottom="20dp"
-    android:padding="10dp" />
+        android:contentDescription="Settings"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp" />
 
     <!-- Back Button at the bottom -->
     <Button
