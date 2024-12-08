@@ -20,7 +20,7 @@
 
     <!-- Correct Inputs Display -->
     <TextView
-        android:id="@+id/correctInputsText"
+        android:id="@+id/correctInputText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/resultsText"

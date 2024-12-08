@@ -18,7 +18,7 @@ class TherapyActivity : AppCompatActivity() {
 
         // Set onClick listeners for buttons
         dyslexiaButton.setOnClickListener {
-            val intent = Intent(this,lextherapy::class.java)
+            val intent = Intent(this,LexTherapyActivity::class.java)
             startActivity(intent)
         }
 

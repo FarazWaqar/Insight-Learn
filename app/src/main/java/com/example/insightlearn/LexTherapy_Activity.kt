@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 
-class lextherapy : AppCompatActivity() {
+class LexTherapyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,38 +20,29 @@ class lextherapy : AppCompatActivity() {
 
     private fun checkAnswers() {
         var score = 0
+        val totalQuestions = 4 // Total number of questions in the activity
 
-        // Group 1 (Spring Image)
-        val group1 = findViewById<RadioGroup>(R.id.group1)
-        val selected1 = group1.checkedRadioButtonId
-        if (selected1 == R.id.radio_spring_1) {
-            score++
+        // Define correct answers for each group
+        val correctAnswers = mapOf(
+            R.id.group1 to R.id.radio_spring_1,
+            R.id.group2 to R.id.radio_autumn_2,
+            R.id.group3 to R.id.radio_winter_3,
+            R.id.group4 to R.id.radio_summer_4
+        )
+
+        // Check answers for each group
+        for ((groupId, correctId) in correctAnswers) {
+            val group = findViewById<RadioGroup>(groupId)
+            if (group.checkedRadioButtonId == correctId) {
+                score++
+            }
         }
 
-        // Group 2 (Autumn Image)
-        val group2 = findViewById<RadioGroup>(R.id.group2)
-        val selected2 = group2.checkedRadioButtonId
-        if (selected2 == R.id.radio_autumn_2) {
-            score++
-        }
-
-        // Group 3 (Winter Image)
-        val group3 = findViewById<RadioGroup>(R.id.group3)
-        val selected3 = group3.checkedRadioButtonId
-        if (selected3 == R.id.radio_winter_3) {
-            score++
-        }
-
-        // Group 4 (Summer Image)
-        val group4 = findViewById<RadioGroup>(R.id.group4)
-        val selected4 = group4.checkedRadioButtonId
-        if (selected4 == R.id.radio_summer_4) {
-            score++
-        }
-
-        // Navigate to result screen
-        val intent = Intent(this@lextherapy, ResultActivity::class.java)
-        intent.putExtra("score", score)
+        // Navigate to the result screen and pass the results
+        val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra("TOTAL_OCCURRENCES", totalQuestions)
+        intent.putExtra("CORRECT_SELECTIONS", score)
+        intent.putExtra("INCORRECT_SELECTIONS", totalQuestions - score)
         startActivity(intent)
     }
 }
