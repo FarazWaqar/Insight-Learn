@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class graphtherapy : AppCompatActivity() {
@@ -56,27 +55,16 @@ class graphtherapy : AppCompatActivity() {
                 }
             }
 
-            // Check if any answers were correct or wrong and display appropriate messages
-            if (results.isNotEmpty()) {
-                val correctCount = results.count { it.second == "Correct" }
-                val wrongCount = results.count { it.second == "Wrong" }
-
-                // Display results
-                if (wrongCount == 0) {
-                    Toast.makeText(this, "All entered answers are correct!", Toast.LENGTH_SHORT).show()
-                    navigateToResultActivity()
-                } else {
-                    Toast.makeText(this, "Some answers are incorrect. You got $correctCount correct and $wrongCount wrong.", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                // Handle case when no input was provided
-                Toast.makeText(this, "No answers provided. Please enter some text.", Toast.LENGTH_SHORT).show()
-            }
+            // Navigate to the result activity, passing results data
+            navigateToResultActivity(results)
         }
     }
 
-    private fun navigateToResultActivity() {
+    private fun navigateToResultActivity(results: List<Pair<Int, String>>) {
         val intent = Intent(this, graphtherapyresult::class.java)
+        // Convert results to a string format for passing
+        val resultDetails = results.map { "Input ${it.first + 1}: ${it.second}" }
+        intent.putStringArrayListExtra("results", ArrayList(resultDetails))
         startActivity(intent)
     }
 }

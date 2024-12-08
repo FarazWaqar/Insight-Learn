@@ -11,17 +11,14 @@ class graphtherapyresult : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.graphtherapy_result)
 
-        // Get results passed from UnscrambleActivity
+        val resultTextView = findViewById<TextView>(R.id.resultText)
         val results = intent.getStringArrayListExtra("results")
 
-        // Display results
-        val resultsText = findViewById<TextView>(R.id.resultText)
-        resultsText.text = results?.joinToString("\n") { it }
-
-        // Back button to return to main screen
-        val backButton = findViewById<Button>(R.id.backButtonResult)
-        backButton.setOnClickListener {
-            finish()
+        if (results != null && results.isNotEmpty()) {
+            val resultText = "Results:\n" + results.joinToString("\n")
+            resultTextView.text = resultText
+        } else {
+            resultTextView.text = "No results to display."
         }
     }
 }
