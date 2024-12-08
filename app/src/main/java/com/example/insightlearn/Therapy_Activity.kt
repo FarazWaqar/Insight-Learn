@@ -23,7 +23,7 @@ class TherapyActivity : AppCompatActivity() {
         }
 
         dysgraphiaButton.setOnClickListener {
-            val intent = Intent(this, graphtherapy::class.java)
+            val intent = Intent(this, graphtherapyactivity::class.java)
             startActivity(intent)
         }
 
