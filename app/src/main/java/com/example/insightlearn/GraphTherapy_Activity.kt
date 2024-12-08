@@ -29,29 +29,48 @@ class graphtherapy : AppCompatActivity() {
 
         val nextButton = findViewById<Button>(R.id.checkAnswersButton)
         nextButton.setOnClickListener {
-            // Convert user inputs and correct answers to uppercase for uniform comparison
+            // Convert user inputs to uppercase for comparison
             val userAnswers = inputFields.map { it.text.toString().trim().uppercase() }
-            val correctAnswers = listOf("AUNT", "SON", "UNCLE", "SISTER", "MOTHER", "FATHER", "BROTHER", "GRANDPA", "GRANDMA")
 
-            val results = userAnswers.mapIndexed { index, answer ->
-                if (answer == correctAnswers[index].uppercase()) "Correct" else "Wrong"
-            }
-
-// Provide feedback to the user
-            userAnswers.forEachIndexed { index, answer ->
-                if (answer == correctAnswers[index].uppercase()) {
-                    inputFields[index].setBackgroundResource(R.drawable.correct_input_background)
+            // Get the results only for non-empty inputs
+            val results = userAnswers.mapIndexedNotNull { index, answer ->
+                if (answer.isNotEmpty()) {
+                    if (answer == correctAnswers[index].uppercase()) {
+                        index to "Correct"
+                    } else {
+                        index to "Wrong"
+                    }
                 } else {
-                    inputFields[index].setBackgroundResource(R.drawable.incorrect_input_background)
+                    null
                 }
             }
 
+            // Provide feedback for each input
+            userAnswers.forEachIndexed { index, answer ->
+                if (answer.isNotEmpty()) {
+                    if (answer == correctAnswers[index].uppercase()) {
+                        inputFields[index].setBackgroundResource(R.drawable.correct_input_background)
+                    } else {
+                        inputFields[index].setBackgroundResource(R.drawable.incorrect_input_background)
+                    }
+                }
+            }
 
-            if (results.all { it == "Correct" }) {
-                Toast.makeText(this, "All answers are correct!", Toast.LENGTH_SHORT).show()
-                navigateToResultActivity()
+            // Check if any answers were correct or wrong and display appropriate messages
+            if (results.isNotEmpty()) {
+                val correctCount = results.count { it.second == "Correct" }
+                val wrongCount = results.count { it.second == "Wrong" }
+
+                // Display results
+                if (wrongCount == 0) {
+                    Toast.makeText(this, "All entered answers are correct!", Toast.LENGTH_SHORT).show()
+                    navigateToResultActivity()
+                } else {
+                    Toast.makeText(this, "Some answers are incorrect. You got $correctCount correct and $wrongCount wrong.", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                Toast.makeText(this, "Some answers are incorrect. Try again!", Toast.LENGTH_SHORT).show()
+                // Handle case when no input was provided
+                Toast.makeText(this, "No answers provided. Please enter some text.", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -61,4 +80,3 @@ class graphtherapy : AppCompatActivity() {
         startActivity(intent)
     }
 }
-
