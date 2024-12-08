@@ -25,3 +25,4 @@ class ResultActivity : AppCompatActivity() {
         """.trimIndent()
     }
 }
+
