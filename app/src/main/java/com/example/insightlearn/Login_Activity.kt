@@ -22,6 +22,10 @@ class LoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             val email = emailInput.text.toString()
             val password = passwordInput.text.toString()
+
+
+
+            //Remove this to enable security
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
