@@ -31,10 +31,9 @@ class HomeActivity : AppCompatActivity() {
         }
 
         settingsIcon.setOnClickListener {
-            Toast.makeText(this, "Settings feature coming soon!", Toast.LENGTH_SHORT).show()
             // Navigate to SettingsActivity (if implemented)
-            // val intent = Intent(this, SettingsActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
     }
 }
